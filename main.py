@@ -8,6 +8,7 @@ from utils.analysis import analyze_conviction, analyze_event_performance
 from agents.random_agent import RandomAgent
 from agents.no_conviction_agent import NoConvictionAgent
 from agents.no_event_agent import NoEventAgent
+from agents.single_agent import SingleAgent
 
 # Load events
 with open("data/mock_data.json", "r") as f:
@@ -79,3 +80,6 @@ train_df = run_pipeline(train_events, agent)
 
 print("\n=== TEST (A3) ===")
 test_df = run_pipeline(test_events, agent)
+
+print("\n=== Single Agent Baseline ===")
+single_df = run_pipeline(events_df, SingleAgent())
